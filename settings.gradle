@@ -6,4 +6,4 @@ pluginManagement {
     }
 }
 
-rootProject.name = "sleep-vote-skip"
+rootProject.name = "compass-overlay"

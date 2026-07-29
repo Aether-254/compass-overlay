@@ -3,29 +3,29 @@ loaderVersion="[4,)"
 license="MIT"
 
 [[mods]]
-modId="sleep_vote_skip"
+modId="compass_overlay"
 version="${version}"
-displayName="Sleep Vote Skip"
+displayName="Compass Overlay"
 authors="Aether_254"
-description='''Starts a server-wide vote when a player sleeps and skips to morning after a majority votes yes.'''
+description='''Shows the player's cardinal heading and yaw while a compass is present in the inventory.'''
 
-[[dependencies.sleep_vote_skip]]
+[[dependencies.compass_overlay]]
 modId="neoforge"
 type="required"
 versionRange="[21.1.219,)"
 ordering="NONE"
-side="BOTH"
+side="CLIENT"
 
-[[dependencies.sleep_vote_skip]]
+[[dependencies.compass_overlay]]
 modId="minecraft"
 type="required"
 versionRange="[1.21.1,1.21.2)"
 ordering="NONE"
-side="BOTH"
+side="CLIENT"
 
-[[dependencies.sleep_vote_skip]]
+[[dependencies.compass_overlay]]
 modId="cloth_config"
 type="required"
 versionRange="[15.0.140,)"
 ordering="AFTER"
-side="BOTH"
+side="CLIENT"

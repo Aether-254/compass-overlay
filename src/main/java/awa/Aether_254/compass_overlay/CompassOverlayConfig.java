@@ -1,4 +1,4 @@
-package awa.Aether_254.sleep_vote_skip;
+package awa.Aether_254.compass_overlay;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -7,12 +7,12 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import net.neoforged.fml.loading.FMLPaths;
 
-public final class SleepVoteConfig {
+public final class CompassOverlayConfig {
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
-    private static final Path PATH = FMLPaths.CONFIGDIR.get().resolve("sleep_vote_skip.json");
+    private static final Path PATH = FMLPaths.CONFIGDIR.get().resolve("compass_overlay.json");
     private static Data data = new Data();
 
-    private SleepVoteConfig() {
+    private CompassOverlayConfig() {
     }
 
     public static Data get() {
@@ -32,8 +32,8 @@ public final class SleepVoteConfig {
     }
 
     public static void save() {
-        data.yesPercentage = Math.max(1, Math.min(100, data.yesPercentage));
-        data.voteTimeoutSeconds = Math.max(10, Math.min(600, data.voteTimeoutSeconds));
+        data.x = Math.max(0, Math.min(10000, data.x));
+        data.y = Math.max(0, Math.min(10000, data.y));
         try {
             Files.createDirectories(PATH.getParent());
             Files.writeString(PATH, GSON.toJson(data));
@@ -43,9 +43,9 @@ public final class SleepVoteConfig {
 
     public static final class Data {
         public boolean enabled = true;
-        public int yesPercentage = 50;
-        public int voteTimeoutSeconds = 60;
-        public boolean sleeperVotesYes = true;
-        public boolean clearWeather = true;
+        public boolean requireCompass = true;
+        public int x = 8;
+        public int y = 8;
+        public boolean shadow = true;
     }
 }
