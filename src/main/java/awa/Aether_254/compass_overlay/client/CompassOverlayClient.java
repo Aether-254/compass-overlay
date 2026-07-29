@@ -23,9 +23,11 @@ public final class CompassOverlayClient {
             return;
 
         int degrees = Math.floorMod(Math.round(minecraft.player.getYRot()), 360);
-        String cardinal = degrees < 45 || degrees >= 315 ? "S"
-            : degrees < 135 ? "W" : degrees < 225 ? "N" : "E";
-        event.getGuiGraphics().drawString(minecraft.font, cardinal + "  " + degrees + "\u00b0",
-            config.x, config.y, 0xFFFFFFFF, config.shadow);
+        String[] directions = {"S", "SW", "W", "NW", "N", "NE", "E", "SE"};
+        String cardinal = directions[Math.floorMod((degrees + 22) / 45, 8)];
+        String text = cardinal + "  " + minecraft.player.blockPosition().getX() + ", "
+            + minecraft.player.blockPosition().getY() + ", " + minecraft.player.blockPosition().getZ();
+        int x = (event.getGuiGraphics().guiWidth() - minecraft.font.width(text)) / 2 + config.xOffset;
+        event.getGuiGraphics().drawString(minecraft.font, text, x, config.y, 0xFFFFFFFF, config.shadow);
     }
 }

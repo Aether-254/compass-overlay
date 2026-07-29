@@ -32,7 +32,7 @@ public final class CompassOverlayConfig {
     }
 
     public static void save() {
-        data.x = Math.max(0, Math.min(10000, data.x));
+        data.xOffset = Math.max(-10000, Math.min(10000, data.xOffset));
         data.y = Math.max(0, Math.min(10000, data.y));
         try {
             Files.createDirectories(PATH.getParent());
@@ -44,7 +44,7 @@ public final class CompassOverlayConfig {
     public static final class Data {
         public boolean enabled = true;
         public boolean requireCompass = true;
-        public int x = 8;
+        public int xOffset = 0;
         public int y = 8;
         public boolean shadow = true;
     }

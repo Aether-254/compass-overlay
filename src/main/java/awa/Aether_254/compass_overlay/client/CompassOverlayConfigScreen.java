@@ -28,8 +28,9 @@ public final class CompassOverlayConfigScreen {
         category.addEntry(entries.startBooleanToggle(Component.literal("Require compass in inventory"),
                 config.requireCompass).setDefaultValue(true)
             .setSaveConsumer(value -> config.requireCompass = value).build());
-        category.addEntry(entries.startIntField(Component.literal("X"), config.x).setDefaultValue(8)
-            .setMin(0).setMax(10000).setSaveConsumer(value -> config.x = value).build());
+        category.addEntry(entries.startIntField(Component.literal("Horizontal offset"), config.xOffset)
+            .setDefaultValue(0).setMin(-10000).setMax(10000)
+            .setSaveConsumer(value -> config.xOffset = value).build());
         category.addEntry(entries.startIntField(Component.literal("Y"), config.y).setDefaultValue(8)
             .setMin(0).setMax(10000).setSaveConsumer(value -> config.y = value).build());
         category.addEntry(entries.startBooleanToggle(Component.literal("Text shadow"), config.shadow)
