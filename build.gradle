@@ -23,15 +23,11 @@ neoForge {
 }
 
 repositories {
-    maven { url = "https://maven.createmod.net" }
-    maven { url = "https://maven.ithundxr.dev/snapshots" }
-    maven { url = "https://raw.githubusercontent.com/Fuzss/modresources/main/maven" }
     maven { url = "https://maven.shedaniel.me/" }
     mavenCentral()
 }
 
 dependencies {
-    implementation "com.simibubi.create:create-1.21.1:${project.create_version}"
     implementation "me.shedaniel.cloth:cloth-config-neoforge:${project.cloth_config_version}"
 }
 
